@@ -144,3 +144,36 @@ function getNumberColor(number){
 }
 
 
+//判断下方块能否移动,包括数字相等合并
+function canMoveLeft(board) {
+    for(var i=0; i<4; i++){
+        for(var j=1; j<4; j++){
+            if(board[i][j] != 0){
+                if (board[i][j-1]==0 || board[i][j-1] == board[i][j]){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+//检测行上有没有阻碍
+function noBlockHorizontal(row,col1,col2,board) {
+    for(var i=col1+1; i<col2; i++){
+        if (board[row][i] != 0){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+//移动动画函数
+function showMoveAnimation(fromx,fromy,tox,toy) {
+    var numberCell = $('#number-cell-'+fromx+'-'+fromy);
+    numberCell.animate({
+        left: getPosLeft(tox,toy),
+        top: getPosTop(tox,toy)
+    },200);
+}

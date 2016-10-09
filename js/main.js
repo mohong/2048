@@ -53,7 +53,7 @@ function init(){
 $(document).keydown(function (event) {
     switch (event.keyCode){
         case 37:  //left
-            if(moveLeft){
+            if(canMoveLeft(board)){
                 moveLeft();
                 generateOneNumber();
                 console.log('left');
@@ -70,3 +70,44 @@ $(document).keydown(function (event) {
             break;
     }
 });
+
+//向左移动
+function moveLeft(){
+    if(!canMoveLeft(board)){
+        return false;
+    }
+
+    //遍历右边12个格子
+    for(var i=0;i<4;i++){
+        for(var j=1;j<4;j++){
+            if(board[i][j]!=0){
+                //有数字则遍历左边
+                for(var k=0;k<j;k++){
+                    //看落点是否为空且路上有无障碍
+                    if(board[i][k]==0 && noBlockHorizontal(i,k,j,board)){
+                        //move
+                        showMoveAnimation(i,j,i,k);
+                        //更新
+                        board[i][k]=board[i][j];
+                        board[i][j]=0;
+                        continue;
+                    }else if(board[i][k]==board[i][j]&&noBlockHorizontal(i,k,j,board)&&!hasConflicted[i][k]){
+                        //move
+                        showMoveAnimation(i,j,i,k);
+                        //更新
+                        board[i][k]+=board[i][j];
+                        board[i][j]=0;
+                        //分数增加
+                        score += board[i][k];
+                        updateScore(score);
+                        hasConflicted[i][k]=true;
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+    //遍历完后更新格子显示状态,慢一点才能显示动画
+    setTimeout("updateBoardView()",200);
+    return true;
+}
