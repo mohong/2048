@@ -47,3 +47,26 @@ function init(){
     score=0;
     $("#score").text(score);
 }
+
+
+//创建事件监听
+$(document).keydown(function (event) {
+    switch (event.keyCode){
+        case 37:  //left
+            if(moveLeft){
+                moveLeft();
+                generateOneNumber();
+                console.log('left');
+            }
+            break;
+        case 38:  //up
+            console.log('top');
+            break;
+        case 39: //right
+            console.log('right');
+            break;
+        case 40:  //bottom
+            console.log('bottom')
+            break;
+    }
+});

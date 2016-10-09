@@ -11,6 +11,6 @@ function showNumberWithAnimation(i,j,randNumber){
         height:100,
         top:getPosTop(i,j),
         left:getPosLeft(i,j)
-    },10);
+    },1);
     numberCell.text(randNumber);
 }

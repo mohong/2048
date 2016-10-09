@@ -39,58 +39,11 @@ function updateBoardView() {
         }
         $('.number-cell').css({
            "line-height": "100px",
-            "font-size": "25px"
+            "font-size": "30px"
         });
     }
 }
 
-
-//添加背景颜色
-function getNumberBackgroundColor(number){
-    var color="black";
-    switch(number){
-        case 2:
-            color='#eee4da';
-            break;
-        case 4:
-            color="#ede0c8";
-            break;
-        case 8:
-            color='#f2b179';
-            break;
-        case 16:
-            color="#f59563";
-            break;
-        case 32:
-            color='#f67c5f';
-            break;
-        case 64:
-            color="#f65e3b";
-            break;
-        case 128:
-            color='#edcf72';
-            break;
-        case 256:
-            color="#edcc61";
-            break;
-        case 512:
-            color='#9c0';
-            break;
-        case 1024:
-            color="#33b5e5";
-            break;
-        case 2048:
-            color='#09c';
-            break;
-    }
-    return color;
-}
-function getNumberColor(number){
-    if(number<=4){
-        return "#776e50";
-    }
-    return "white";
-}
 
 //生成一个随机数字
 function generateOneNumber() {
@@ -141,4 +94,53 @@ function nospace(board){
     }
     return true;
 }
+
+
+//添加背景颜色
+function getNumberBackgroundColor(number){
+    var color="black";
+    switch(number){
+        case 2:
+            color='#eee4da';
+            break;
+        case 4:
+            color="#ede0c8";
+            break;
+        case 8:
+            color='#f2b179';
+            break;
+        case 16:
+            color="#f59563";
+            break;
+        case 32:
+            color='#f67c5f';
+            break;
+        case 64:
+            color="#f65e3b";
+            break;
+        case 128:
+            color='#edcf72';
+            break;
+        case 256:
+            color="#edcc61";
+            break;
+        case 512:
+            color='#9c0';
+            break;
+        case 1024:
+            color="#33b5e5";
+            break;
+        case 2048:
+            color='#09c';
+            break;
+    }
+    return color;
+}
+function getNumberColor(number){
+    if(number<=4){
+        return "#776e50";
+    }
+    return "white";
+}
+
 
