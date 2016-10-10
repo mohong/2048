@@ -14,7 +14,7 @@ header {
 
 header #new_game_button {
     display: block;
-    margin: 60px auto 10px;
+    margin: 30px auto 10px;
     width: 100px;
     padding: 10px 10px;
     background-color: #8f7a66;
