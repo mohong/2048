@@ -120,24 +120,27 @@ $(document).keydown(function(event) {
         case 37: //left
             event.preventDefault();
             if (move_left()) {
-                setTimeout('generate_one_number()', 210);
+                setTimeout('generate_one_number()', 200);
                 //setTimeout('is_gameover()', 300);
             }
             break;
         case 38: //up
             event.preventDefault();
             if(move_up()){
-                setTimeout('generate_one_number()',210);
+                setTimeout('generate_one_number()',200);
             }
             break;
         case 39: //right
             event.preventDefault();
             if(move_right()){
-                setTimeout('generate_one_number()',210);
+                setTimeout('generate_one_number()',200);
             }
             break;
         case 40: //down
-
+            event.preventDefault();
+            if (move_down()){
+                setTimeout('generate_one_number()',200);
+            }
             break;
         default:
             break;
@@ -243,3 +246,55 @@ function move_up() {
     return true;
 }
 
+//向下移动
+function move_down() {
+    if (!can_move_down(board)) {
+        return false;
+    }
+    //move down
+    for (var j = 0; j < 4; j++) {
+        for (var i = 2; i >= 0; i--) {
+            if (board[i][j] != 0) {
+                for (var k = 3; k > i; k--) {
+                    if (board[k][j] == 0 && no_block_vertical(j, i, k, board)) {
+                        show_move_animation(i, j, k, j);
+                        board[k][j] = board[i][j];
+                        board[i][j] = 0;
+                        break;
+                    } else if (board[k][j] == board[i][j] && no_block_vertical(j, i, k, board) && !has_conflicted[k][j]) {
+                        show_move_animation(i, j, k, j);
+                        board[k][j] += board[i][j];
+                        board[i][j] = 0;
+                        //add score
+                        score += board[k][j];
+                        update_score(score);
+                        has_conflicted[k][j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    setTimeout('update_board_view()', 200);
+    return true;
+}
+
+
+//判断游戏是否成功
+function is_gameover() {
+    for(var i=0; i<4; i++){
+        for(var j=0; j<4; j++){
+            if (board[i][j] == 2048){
+                update_score(success_string);
+                return;
+            }
+        }
+    }
+    if (nospace(board) && nomove(board)) {
+        gameover();
+    }
+}
+
+function gameover() {
+    update_score(gameover_string);
+}

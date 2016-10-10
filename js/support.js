@@ -89,7 +89,19 @@ function can_move_up(board) {
     return false;
 }
 
-
+//判断是否能向下移动
+function can_move_down(board) {
+    for (var j = 0; j < 4; j++) {
+        for (var i = 2; i >= 0; i--) {
+            if (board[i][j] != 0) {
+                if (board[i + 1][j] == 0 || board[i + 1][j] == board[i][j]) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
 
 
 //判断水平方向上时候是否有空格子
@@ -108,6 +120,14 @@ function no_block_vertical(col,row1,row2,board) {
         if (board[i][col] != 0){
             return false;
         }
+    }
+    return true;
+}
+
+//无法移动
+function nomove(board) {
+    if (can_move_down(board) || can_move_up(board) || can_move_right(board) || can_move_left(board)) {
+        return false;
     }
     return true;
 }
