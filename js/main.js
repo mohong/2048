@@ -121,25 +121,28 @@ $(document).keydown(function(event) {
             event.preventDefault();
             if (move_left()) {
                 setTimeout('generate_one_number()', 200);
-                //setTimeout('is_gameover()', 300);
+                setTimeout('is_gameover()', 300);
             }
             break;
         case 38: //up
             event.preventDefault();
             if(move_up()){
                 setTimeout('generate_one_number()',200);
+                setTimeout('is_gameover()', 300);
             }
             break;
         case 39: //right
             event.preventDefault();
             if(move_right()){
                 setTimeout('generate_one_number()',200);
+                setTimeout('is_gameover()', 300);
             }
             break;
         case 40: //down
             event.preventDefault();
             if (move_down()){
                 setTimeout('generate_one_number()',200);
+                setTimeout('is_gameover()', 300);
             }
             break;
         default:
