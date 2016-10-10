@@ -1,3 +1,9 @@
+body {
+    margin:0px;
+    padding: 0px;
+    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") no-repeat center;
+    content: '';;
+}
 header {
     display: block;
     margin: 0 auto;
@@ -5,16 +11,10 @@ header {
     text-align: center;
 }
 
-header h1 {
-    font-family: Arial;
-    font-size: 60px;
-    font-weight: bold;
-    margin: 0 auto;
-}
 
 header #new_game_button {
     display: block;
-    margin: 0px auto;
+    margin: 60px auto 10px;
     width: 100px;
     padding: 10px 10px;
     background-color: #8f7a66;
@@ -23,6 +23,8 @@ header #new_game_button {
     border-radius: 10px;
     text-decoration: none;
 }
+
+
 
 header #new_game_button:hover {
     background-color: #9f8b77;
@@ -42,6 +44,7 @@ header p {
     background-color: #bbada0;
     border-radius: 10px;
     position: relative;
+    opacity: 0.8;
 }
 
 .grid_cell {

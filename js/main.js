@@ -7,6 +7,7 @@ var gameover_string = 'GameOver';
 //初始化棋局
 $(document).ready(function() {
     new_game();
+    $('#music').play();
 });
 
 //开始新游戏
@@ -167,7 +168,7 @@ function move_left() {
                         break;
                     } else if (board[i][k] == board[i][j] && no_block_horizontal(i, k, j, board) && !has_conflicted[i][k]) {
                         show_move_animation(i, j, i, k);
-                        board[i][k] += board[i][j]
+                        board[i][k] += board[i][j];
                         board[i][j] = 0;
                         //add score
                         score += board[i][k];
@@ -299,5 +300,5 @@ function is_gameover() {
 }
 
 function gameover() {
-    update_score(gameover_string);
+   alert("走投无路啦");
 }
