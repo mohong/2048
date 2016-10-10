@@ -182,22 +182,22 @@ function move_left() {
 
 //向右移动
 function move_right() {
-    if(!can_move_right(board)){
+    if (!can_move_right(board)) {
         return false;
     }
     //move right
-    for(var i=0; i<4; i++){
-        for(var j=2; j>=0; j--){
-            if(board[i][j] != 0){
-                for(var k =3 ; k>j; k--){
-                    if(board[i][k] == 0 && no_block_horizontal(i,k,j,board)){
-                        show_move_animation(i,j,i,k);
+    for (var i = 0; i < 4; i++) {
+        for (var j = 2; j >= 0; j--) {
+            if (board[i][j] != 0) {
+                for (var k = 3; k > j; k--) {
+                    if (board[i][k] == 0 && no_block_horizontal(i, j, k, board)) {
+                        show_move_animation(i, j, i, k);
                         board[i][k] = board[i][j];
                         board[i][j] = 0;
                         break;
-                    } else if (board[i][k] == board[i][j] && no_block_horizontal(i, k, j, board) && !has_conflicted[i][k]) {
+                    } else if (board[i][k] == board[i][j] && no_block_horizontal(i, j, k, board) && !has_conflicted[i][k]) {
                         show_move_animation(i, j, i, k);
-                        board[i][k] += board[i][j]
+                        board[i][k] += board[i][j];
                         board[i][j] = 0;
                         //add score
                         score += board[i][k];
