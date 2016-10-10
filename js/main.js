@@ -63,8 +63,8 @@ function update_board_view() {
                     'left': get_pos_left(i, j),
                     'background-color': get_number_background_color(board[i][j]),
                     'color': get_number_color(board[i][j]),
-                    'text': board[i][j]
                 });
+                number_cell.text(board[i][j]);
             }
             has_conflicted[i][j] = false;
         }
@@ -107,6 +107,67 @@ function generate_one_number() {
     //在随机位置显示随机数字
     board[randx][randy] = rand_number;
     show_number_with_animation(randx, randy, rand_number);
+    return true;
+}
+
+//监听键盘的上下左右移动
+$(document).keydown(function(event) {
+    if ($('#score').text() == success_string) {
+        new_game();
+        return;
+    }
+    switch (event.keyCode) {
+        case 37: //left
+            event.preventDefault();
+            if (move_left()) {
+                setTimeout('generate_one_number()', 210);
+                //setTimeout('is_gameover()', 300);
+            }
+            break;
+        case 38: //up
+
+            break;
+        case 39: //right
+
+            break;
+        case 40: //down
+
+            break;
+        default:
+            break;
+    }
+});
+
+//向左移动
+function move_left() {
+    if (!can_move_left(board)) {
+        return false;
+    }
+    //move left
+    for (var i = 0; i < 4; i++) {
+        for (var j = 1; j < 4; j++) {
+            if (board[i][j] != 0) {
+                for (var k = 0; k < j; k++) {
+                    if (board[i][k] == 0 && no_block_horizontal(i, k, j, board)) {
+                        show_move_animation(i, j, i, k);
+                        board[i][k] = board[i][j];
+                        board[i][j] = 0;
+                        break;
+                    } else if (board[i][k] == board[i][j] && no_block_horizontal(i, k, j, board) && !has_conflicted[i][k]) {
+                        show_move_animation(i, j, i, k);
+                        board[i][k] += board[i][j]
+                        board[i][j] = 0;
+                        //add score
+                        score += board[i][k];
+                        update_score(score);
+                        has_conflicted[i][k] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    setTimeout('update_board_view()', 200);
     return true;
 }
 

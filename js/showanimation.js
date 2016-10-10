@@ -5,8 +5,8 @@ function show_number_with_animation(i, j, rand_number) {
     number_cell.css('color', get_number_color(rand_number));
     number_cell.text(rand_number);
     number_cell.animate({
-        width:100,
-        height:100,
+        width: '100px',
+        height: '100px',
         top: get_pos_top(i, j),
         left: get_pos_left(i, j)
     }, 50);
@@ -15,4 +15,13 @@ function show_number_with_animation(i, j, rand_number) {
 //更新分数
 function update_score(score) {
     $('#score').text(score);
+}
+
+//格子移动时有动画效果
+function show_move_animation(fromx, fromy, tox, toy) {
+    var number_cell = $('#number_cell_' + fromx + '_' + fromy);
+    number_cell.animate({
+        top: get_pos_top(tox, toy),
+        left: get_pos_left(tox, toy)
+    }, 200);
 }
