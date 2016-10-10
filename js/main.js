@@ -128,7 +128,10 @@ $(document).keydown(function(event) {
 
             break;
         case 39: //right
-
+            event.preventDefault();
+            if(move_right()){
+                setTimeout('generate_one_number()',210);
+            }
             break;
         case 40: //down
 
@@ -171,3 +174,35 @@ function move_left() {
     return true;
 }
 
+//向右移动
+function move_right() {
+    if(!can_move_right(board)){
+        return false;
+    }
+    //move right
+    for(var i=0; i<4; i++){
+        for(var j=2; j>=0; j--){
+            if(board[i][j] != 0){
+                for(var k =3 ; k>j; k--){
+                    if(board[i][k] == 0 && no_block_horizontal(i,k,j,board)){
+                        show_move_animation(i,j,i,k);
+                        board[i][k] = board[i][j];
+                        board[i][j] = 0;
+                        break;
+                    } else if (board[i][k] == board[i][j] && no_block_horizontal(i, k, j, board) && !has_conflicted[i][k]) {
+                        show_move_animation(i, j, i, k);
+                        board[i][k] += board[i][j]
+                        board[i][j] = 0;
+                        //add score
+                        score += board[i][k];
+                        update_score(score);
+                        has_conflicted[i][k] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    setTimeout('update_board_view()', 200);
+    return true;
+}

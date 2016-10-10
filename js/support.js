@@ -61,6 +61,22 @@ function can_move_left(board) {
     }
     return false;
 }
+//判断能否右移
+function can_move_right(board) {
+    for(var i=0; i<4; i++){
+        for(var j=2; j>=0; j--){
+            if(board[i][j] != 0){
+                if(board[i][j+1] == 0 || board[i][j] == board[i][j+1]){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+
+
 
 //判断水平方向上时候是否有空格子
 function no_block_horizontal(row, col1, col2, board) {
