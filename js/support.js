@@ -75,6 +75,20 @@ function can_move_right(board) {
     return false;
 }
 
+//判断能否上移
+function can_move_up(board) {
+    for (var j = 0; j < 4; j++) {
+        for (var i = 1; i < 4; i++) {
+            if (board[i][j] != 0) {
+                if (board[i - 1][j] == 0 || board[i - 1][j] == board[i][j]) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 
 
 
@@ -88,3 +102,12 @@ function no_block_horizontal(row, col1, col2, board) {
     return true;
 }
 
+//判断垂直方向移动的时候是否有空格
+function no_block_vertical(col,row1,row2,board) {
+    for (var i = row1 + 1; i < row2; i++){
+        if (board[i][col] != 0){
+            return false;
+        }
+    }
+    return true;
+}

@@ -125,7 +125,10 @@ $(document).keydown(function(event) {
             }
             break;
         case 38: //up
-
+            event.preventDefault();
+            if(move_up()){
+                setTimeout('generate_one_number()',210);
+            }
             break;
         case 39: //right
             event.preventDefault();
@@ -206,3 +209,37 @@ function move_right() {
     setTimeout('update_board_view()', 200);
     return true;
 }
+
+//向上移动
+function move_up() {
+    if(!can_move_up(board)){
+        return false;
+    }
+    //move up
+    for (var j = 0; j < 4; j++) {
+        for (var i = 1; i < 4; i++) {
+            if (board[i][j] != 0) {
+                for (var k = 0; k < i; k++) {
+                    if (board[k][j] == 0 && no_block_vertical(j, k, i, board)) {
+                        show_move_animation(i, j, k, j);
+                        board[k][j] = board[i][j];
+                        board[i][j] = 0;
+                        break;
+                    } else if (board[k][j] == board[i][j] && no_block_vertical(j, k, i, board) && !has_conflicted[k][j]) {
+                        show_move_animation(i, j, k, j);
+                        board[k][j] += board[i][j];
+                        board[i][j] = 0;
+                        //add score
+                        score += board[k][j];
+                        update_score(score);
+                        has_conflicted[k][j] = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    setTimeout('update_board_view()',200);
+    return true;
+}
+
