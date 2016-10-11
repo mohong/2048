@@ -7,7 +7,6 @@ var gameover_string = 'GameOver';
 //初始化棋局
 $(document).ready(function() {
     new_game();
-    $('#music').play();
 });
 
 //开始新游戏
