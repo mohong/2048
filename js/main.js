@@ -2,7 +2,6 @@ var board = new Array();    //每个格子的数字
 var score = 0;  //分数
 var has_conflicted = new Array();   //解决连续消除的标记
 var success_string = 'Success';
-var gameover_string = 'GameOver';
 
 //初始化棋局
 $(document).ready(function() {
