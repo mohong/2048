@@ -314,10 +314,11 @@ function come_back() {
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
             board[i][j]  = parseInt(o[n].substr(o[n].lastIndexOf(',')+1));
-            score = parseInt(o[n].substr(0,1));
+            score = parseInt(o[n]);
             n++;
         }
     }
+    console.log(score);
     update_score(score);
     back.pop();
     setTimeout('update_board_view()',200);
