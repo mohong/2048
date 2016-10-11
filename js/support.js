@@ -132,3 +132,15 @@ function nomove(board) {
     return true;
 }
 
+//保存状态，模拟快照，每一步生成一个对象，
+function save_status(board) {
+    var o = new Object();
+    var n = 1;
+    for(var i=0; i<4; i++){
+        for(var j=0; j<4; j++){
+            o[n] = score+ ',' + board[i][j];
+            n ++;
+        }
+    }
+    back.push(o);
+}

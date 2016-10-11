@@ -12,9 +12,9 @@ header {
 }
 
 
-header #new_game_button {
+header #new_game_button,#come_back_button {
     display: block;
-    margin: 30px auto 10px;
+    margin: 10px auto 10px;
     width: 100px;
     padding: 10px 10px;
     background-color: #8f7a66;

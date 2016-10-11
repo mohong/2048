@@ -2,6 +2,7 @@ var board = new Array();    //每个格子的数字
 var score = 0;  //分数
 var has_conflicted = new Array();   //解决连续消除的标记
 var success_string = 'Success';
+var back = new Array();
 
 //初始化棋局
 $(document).ready(function() {
@@ -106,6 +107,7 @@ function generate_one_number() {
     //在随机位置显示随机数字
     board[randx][randy] = rand_number;
     show_number_with_animation(randx, randy, rand_number);
+    save_status(board); //保存快照
     return true;
 }
 
@@ -299,4 +301,24 @@ function is_gameover() {
 
 function gameover() {
    alert("走投无路啦");
+}
+
+//回退函数
+function come_back() {
+    if (back.length<=2){
+        return;
+    }
+    var o = back[back.length-2];
+    var n = 1;
+    //o[n]遍历对象
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            board[i][j]  = parseInt(o[n].substr(o[n].lastIndexOf(',')+1));
+            score = parseInt(o[n].substr(0,1));
+            n++;
+        }
+    }
+    update_score(score);
+    back.pop();
+    setTimeout('update_board_view()',200);
 }
