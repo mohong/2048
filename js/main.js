@@ -23,8 +23,8 @@ function init() {
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
             var grid_cell = $('#grid_cell_' + i + '_' + j);
-            grid_cell.css('top', get_pos_top(i, j));
-            grid_cell.css('left', get_pos_left(i, j));
+            grid_cell.css('top', get_pos_top(i, j) + 'rem');
+            grid_cell.css('left', get_pos_left(i, j) + 'rem');
         }
     }
     for (var i = 0; i < 4; i++) {
@@ -49,20 +49,20 @@ function update_board_view() {
             var number_cell = $('#number_cell_' + i + '_' + j);
             if (board[i][j] == 0) {
                 number_cell.css({
-                    'width': '0px',
-                    'height': '0px',
-                    'top': get_pos_top(i, j) +50,
-                    'left': get_pos_left(i, j) +50
+                    'width': '0',
+                    'height': '0',
+                    'top': get_pos_top(i, j) + 2.5 + 'rem',
+                    'left': get_pos_left(i, j) + 2.5 +'rem'
                 });
 
             } else {
                 number_cell.css({
-                    'width':100,
-                    'height':100,
-                    'top': get_pos_top(i, j),
-                    'left': get_pos_left(i, j),
+                    'width': '5rem',
+                    'height': '5rem',
+                    'top': get_pos_top(i, j) + 'rem',
+                    'left': get_pos_left(i, j) + 'rem',
                     'background-color': get_number_background_color(board[i][j]),
-                    'color': get_number_color(board[i][j]),
+                    'color': get_number_color(board[i][j])
                 });
                 number_cell.text(board[i][j]);
             }
@@ -70,8 +70,8 @@ function update_board_view() {
         }
     }
     $('.number_cell').css({
-        'line-height': '100px',
-        'font-size': '60px'
+        'line-height': '5rem',
+        'font-size': '3rem'
     });
 }
 

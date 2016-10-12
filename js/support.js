@@ -1,12 +1,12 @@
 
 //获得相应格子距离期盘顶部的距离
 function get_pos_top(i, j) {
-    return 20 + i * (20 +100);
+    return 1 + i * (1 +5);
 }
 
 //获得相应格子距离棋盘左边的距离
 function get_pos_left(i, j) {
-    return 20 + j * (20 +100);
+    return 1 + j * (1 +5);
 }
 
 //获得相应数字的背景色
@@ -144,3 +144,5 @@ function save_status(board) {
     }
     back.push(o);
 }
+
+
