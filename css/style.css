@@ -6,17 +6,33 @@ body {
 }
 header {
     display: block;
-    margin: 0 auto;
-    width: 100%;
+    margin: 40px auto 10px;
+    width: 420px;
     text-align: center;
+    position: relative;
+    font-size:20px;
 }
 
 
-header #new_game_button,#come_back_button {
-    display: block;
-    margin: 10px auto 10px;
+header #new_game_button {
+    position: absolute;
+    left:0px;
+    top:5px;
     width: 100px;
-    padding: 10px 10px;
+    padding: 20px;
+    background-color: #8f7a66;
+    font-family: Arial;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+header #come_back_button{
+    position: absolute;
+    right:0px;
+    top:5px;
+    width: 100px;
+    padding: 20px;
     background-color: #8f7a66;
     font-family: Arial;
     color: white;
@@ -25,15 +41,20 @@ header #new_game_button,#come_back_button {
 }
 
 
-
-header #new_game_button:hover {
+header #new_game_button:hover ,#come_back_button:hover{
     background-color: #9f8b77;
 }
 
 header p {
+    display: block;
+    width:80px;
+    margin: 0 auto;
+    font-size:30px;
+    padding: 20px;
+    background-color: #8f7a66;
     font-family: Arial;
-    font-size: 25px;
-    margin: 5px auto;
+    color: white;
+    border-radius: 10px;
 }
 
 #grid_container {
