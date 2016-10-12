@@ -145,4 +145,13 @@ function save_status(board) {
     back.push(o);
 }
 
+//适配移动端
+var document_width = window.screen.availWidth;  //屏幕宽度
+function prepare_for_mobile() {
+    if (document_width < 500) {
+        $('html').css({
+            'font-size': '40px'
+        });
 
+    }
+}

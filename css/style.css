@@ -17,12 +17,11 @@
     /*font-size: 20px;*/
 /*}*/
 
-body {
-    margin:0px;
-    padding: 0px;
-    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") no-repeat center;
+html {
+    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") repeat-y center;
     font-family: Arial;
 }
+
 
 header {
     display: block;

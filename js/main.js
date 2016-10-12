@@ -4,8 +4,10 @@ var has_conflicted = new Array();   //解决连续消除的标记
 var success_string = 'Success';
 var back = new Array();
 
+
 //初始化棋局
 $(document).ready(function() {
+    prepare_for_mobile();   //适配移动端
     new_game();
 });
 
