@@ -155,3 +155,64 @@ function prepare_for_mobile() {
 
     }
 }
+
+//监听移动设备的触摸开始
+document.addEventListener('touchstart',function (event) {
+    startx = event.touches[0].pageX;
+    starty = event.touches[0].pageY;
+});
+
+//监听移动设备的触摸移动
+document.addEventListener('touchmove',function (evnet) {
+    event.preventDefault();
+});
+
+//监听移动设备的触摸结束
+document.addEventListener('touchend',function (event) {
+    endx = event.changedTouches[0].pageX;
+    endy = event.changedTouches[0].pageY;
+
+    var x = endx - startx;
+    var y = endy - starty;
+
+    if(Math.abs(x) < 0.1*document_width && Math.abs(y) < 0.3*document_width){
+        return;
+    }
+
+    if ($('#score').text == success_string) {
+        new_game();
+        return;
+    }
+
+    //x
+    if(Math.abs(x) > Math.abs(y)){
+        if(x > 0){
+            //向右移动
+            if (move_right()){
+                setTimeout('generate_one_number()',210);
+                setTimeout('is_gameover()',300);
+            }
+        } else {
+            //向左移动
+            if (move_left()){
+                setTimeout('generate_one_number()',210);
+                setTimeout('is_gameover()',300);
+            }
+        }
+    } else { //y
+        if (x > 0){
+            //向上移动
+            if (move_up()){
+                setTimeout('generate_one_number()',210);
+                setTimeout('is_gameover()',300);
+            }
+
+        } else {  //向下移动
+            if (move_down()){
+                setTimeout('generate_one_number()',210);
+                setTimeout('is_gameover()',300);
+            }
+        }
+    }
+
+})

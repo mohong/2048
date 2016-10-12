@@ -4,6 +4,10 @@ var has_conflicted = new Array();   //解决连续消除的标记
 var success_string = 'Success';
 var back = new Array();
 
+var startx = 0; //移动端触摸屏幕时开始点的x坐标
+var starty = 0; //移动端触摸屏幕时开始点的y坐标
+var endx = 0;   //移动端触摸屏幕时结束点的x坐标
+var endy = 0;   //移动端触摸屏幕时结束点的y坐标
 
 //初始化棋局
 $(document).ready(function() {
@@ -325,3 +329,4 @@ function come_back() {
     back.pop();
     setTimeout('update_board_view()',200);
 }
+
