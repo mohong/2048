@@ -18,14 +18,14 @@
 /*}*/
 
 html {
-    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") repeat-y center;
+    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") repeat-y center center;
     font-family: Arial;
 }
 
 
 header {
     display: block;
-    margin: 2rem auto 0.5rem;
+    margin: 1.5rem auto 0.5rem;
     width: 21rem;
     text-align: center;
     position: relative;
@@ -37,7 +37,7 @@ header #new_game_button {
     left:0px;
     top:0.25rem;
     width: 5rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;
@@ -49,7 +49,7 @@ header #come_back_button{
     right:0px;
     top:0.25rem;
     width: 5rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;
@@ -65,7 +65,7 @@ header p {
     width:4rem;
     margin: 0 auto;
     font-size:1.5rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;

@@ -17,6 +17,7 @@ $(document).ready(function() {
 
 //开始新游戏
 function new_game() {
+    back = [];
     //初始化棋盘
     init();
     //在随机两个格子生成数字
@@ -324,7 +325,6 @@ function come_back() {
             n++;
         }
     }
-    console.log(score);
     update_score(score);
     back.pop();
     setTimeout('update_board_view()',200);
