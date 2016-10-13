@@ -13,12 +13,8 @@
 @media only screen and (min-width: 640px){html{font-size: 20px;} }
 
 
-/*html {*/
-    /*font-size: 20px;*/
-/*}*/
-
 html {
-    background:url("http://ob9qd20l4.bkt.clouddn.com/bg13.jpg") repeat-y center center;
+    background:url("http://ob9qd20l4.bkt.clouddn.com/bg3.jpg") repeat center center;
     font-family: Arial;
 }
 
@@ -30,6 +26,7 @@ header {
     text-align: center;
     position: relative;
     font-size:1rem;
+    opacity: 0.9;
 }
 
 header #new_game_button {
@@ -37,7 +34,7 @@ header #new_game_button {
     left:0px;
     top:0.25rem;
     width: 5rem;
-    padding: 1.5rem 1rem;
+    padding: 1.4rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;
@@ -49,7 +46,7 @@ header #come_back_button{
     right:0px;
     top:0.25rem;
     width: 5rem;
-    padding: 1.5rem 1rem;
+    padding: 1.4rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;
@@ -65,7 +62,7 @@ header p {
     width:4rem;
     margin: 0 auto;
     font-size:1.5rem;
-    padding: 1.5rem 1rem;
+    padding: 1.4rem 1rem;
     background-color: #8f7a66;
     color: white;
     border-radius: 0.5rem;
@@ -79,7 +76,7 @@ header p {
     background-color: #bbada0;
     border-radius: 0.5rem;
     position: relative;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .grid_cell {
