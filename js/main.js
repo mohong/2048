@@ -42,6 +42,8 @@ function init() {
             has_conflicted[i][j] = false;
         }
     }
+
+
     update_board_view();
     score = 0;
     update_score(score);
@@ -59,27 +61,55 @@ function update_board_view() {
                     'width': '0',
                     'height': '0',
                     'top': get_pos_top(i, j) + 2.5 + 'rem',
-                    'left': get_pos_left(i, j) + 2.5 +'rem'
+                    'left': get_pos_left(i, j) + 2.5 +'rem',
+                    'line-height': '5rem',
+                    'font-size': '3rem'
                 });
 
-            } else {
+            }else if(board[i][j] >= 1024){
+                console.log(board[i][j]);
                 number_cell.css({
                     'width': '5rem',
                     'height': '5rem',
                     'top': get_pos_top(i, j) + 'rem',
                     'left': get_pos_left(i, j) + 'rem',
                     'background-color': get_number_background_color(board[i][j]),
-                    'color': get_number_color(board[i][j])
+                    'color': get_number_color(board[i][j]),
+                    'line-height': '5rem',
+                    'font-size': '2rem'
+                });
+                number_cell.text(board[i][j]);
+            }else if(board[i][j] >= 100){
+                console.log(board[i][j]);
+                number_cell.css({
+                    'width': '5rem',
+                    'height': '5rem',
+                    'top': get_pos_top(i, j) + 'rem',
+                    'left': get_pos_left(i, j) + 'rem',
+                    'background-color': get_number_background_color(board[i][j]),
+                    'color': get_number_color(board[i][j]),
+                    'line-height': '5rem',
+                    'font-size': '2.5rem'
+                });
+                number_cell.text(board[i][j]);
+            }else {
+                number_cell.css({
+                    'width': '5rem',
+                    'height': '5rem',
+                    'top': get_pos_top(i, j) + 'rem',
+                    'left': get_pos_left(i, j) + 'rem',
+                    'background-color': get_number_background_color(board[i][j]),
+                    'color': get_number_color(board[i][j]),
+                    'line-height': '5rem',
+                    'font-size': '3rem'
                 });
                 number_cell.text(board[i][j]);
             }
             has_conflicted[i][j] = false;
         }
     }
-    $('.number_cell').css({
-        'line-height': '5rem',
-        'font-size': '3rem'
-    });
+
+
 }
 
 //随机在一个格子生成数字
