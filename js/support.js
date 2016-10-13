@@ -155,9 +155,15 @@ function prepare_for_mobile() {
     }
 }
 
+//监听移动设备的双击
+document.addEventListener('click',function (evnet) {
+    event.preventDefault();
+});
+
 
 //监听移动设备的触摸开始
 document.addEventListener('touchstart',function (event) {
+    event.preventDefault();
     startx = event.touches[0].pageX;
     starty = event.touches[0].pageY;
 });
@@ -169,6 +175,7 @@ document.addEventListener('touchmove',function (evnet) {
 
 //监听移动设备的触摸结束
 document.addEventListener('touchend',function (event) {
+    event.preventDefault();
     endx = event.changedTouches[0].pageX;
     endy = event.changedTouches[0].pageY;
 

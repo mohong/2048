@@ -80,7 +80,6 @@ function update_board_view() {
                 });
                 number_cell.text(board[i][j]);
             }else if(board[i][j] >= 100){
-                console.log(board[i][j]);
                 number_cell.css({
                     'width': '5rem',
                     'height': '5rem',
