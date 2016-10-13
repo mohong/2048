@@ -23,8 +23,7 @@ function get_number_background_color(number) {
         case 512: return '#9c0'; break;
         case 1024: return '#33b5e5'; break;
         case 2048: return '#09c'; break;
-        case 4096: return '#a6c'; break;
-        case 8192: return '#93c'; break;
+
     }
     return 'black';
 }
@@ -156,6 +155,7 @@ function prepare_for_mobile() {
     }
 }
 
+
 //监听移动设备的触摸开始
 document.addEventListener('touchstart',function (event) {
     startx = event.touches[0].pageX;
@@ -175,7 +175,7 @@ document.addEventListener('touchend',function (event) {
     var x = endx - startx;
     var y = endy - starty;
 
-    if(Math.abs(x) < 0.1*document_width && Math.abs(y) < 0.3*document_width){
+    if(Math.abs(x) < 0.3*document_width && Math.abs(y) < 0.3*document_width){
         return;
     }
 
@@ -199,8 +199,8 @@ document.addEventListener('touchend',function (event) {
                 setTimeout('is_gameover()',300);
             }
         }
-    } else { //y
-        if (x > 0){
+    } else if(Math.abs(x) < Math.abs(y)) { //y
+        if (y < 0){
             //向上移动
             if (move_up()){
                 setTimeout('generate_one_number()',210);
